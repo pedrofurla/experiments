@@ -1,0 +1,102 @@
+% !TEX TS-program = pdfLaTeX
+% !TEX encoding = UTF-8
+
+% 
+
+\documentclass[12pt]{article}  % tipo de documento
+
+\usepackage[utf8]{inputenc}  % levar em consideração que é um arquivo em utf8
+\usepackage{times}                 % um fonte que tenha acentos
+\usepackage[T1]{fontenc}      % levando em consideração utf8 na hora de escolher as letras da fonte
+\usepackage{hyperref}
+\usepackage{fancyhdr}           % manipular o cabeçalho
+\usepackage[normalem]{ulem} % sublinhado que não sobreescreve \emph
+
+\pagestyle{fancy}
+\setcounter{tocdepth}{5}
+
+\rhead{Deploy do Pelotão no espaço}
+
+\begin{document} 
+
+\newcommand{\pelota}[1]{\uwave{#1}}
+\newcommand{\bleh}{Exemplo de substituição}
+
+
+\title{\LARGE 
+	Le petit example de \LaTeX \\ 
+	avec accents
+}
+\maketitle
+
+\tableofcontents
+
+\section{TESTES} 
+
+áéíóú \\
+âêîôû \\
+ãeiõu \\
+aëïöü \\
+àèìòù
+
+Uma parâgrafo grande para mostrar um pouco mais de como o \LaTeX\ renderiza as coisas. Ao contrário de ferramentas como MS Word, que são \emph{WYSIWYG} ``What you see is what you get'', \LaTeX\ é \textit{WYSIWYM} ``What you see is what you mean''. Mais algumas letras quase aleatórias, seriam realmente aleatórias não fosse por formarem palavras.
+
+\pelota{Exemplo de comando customizado}
+
+\bleh
+
+\subsection{Tabela1}
+
+\begin{tabular}{|  l  | c | r | }
+  \hline                       
+  1 & 2 & 3 \\ \hline
+  4 & 5 & 6 \\ \hline
+  7 & 8 & 9 \\
+  \hline  
+\end{tabular}
+
+\subsection{Tabela2} 
+
+\begin{LARGE}
+\begin{tabular}{|  l  | c | r | }
+  \hline                       
+  1 & 2 & 3 \\ \hline
+  4 & 5 & 6 \\ \hline
+  7 & 8 & 9 \\ 
+  \hline  
+\end{tabular}
+\end{LARGE}
+
+\subsection{Lists}
+
+\subsubsection{Bullets}
+
+\begin{itemize}
+  \item italics \textit{The first item}
+  \item bold \textbf{The second item}
+  \item underline \uline{The third etc \ldots}
+  \item underwave \uwave{More stuff}
+  \item strike-out \sout{Even more ...}
+\end{itemize}
+
+\subsubsection{Enumerados}
+
+\begin{enumerate}
+  \item The first item
+  \item The second item
+  \item The third etc \ldots
+\end{enumerate}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

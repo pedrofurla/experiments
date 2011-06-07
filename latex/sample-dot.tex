@@ -1,0 +1,96 @@
+% !TEX TS-program = pdfLaTeX
+% !TEX encoding = UTF-8
+
+% 
+
+\documentclass[12pt]{article}  % tipo de documento
+
+\usepackage[utf8]{inputenc}  % levar em consideração que é um arquivo em utf8
+\usepackage{times}                 % uma fonte que tenha acentos
+\usepackage[T1]{fontenc}      % levando em consideração utf8 na hora de escolher as letras da fonte 
+\usepackage{hyperref}
+\usepackage{fancyhdr}           % manipular o cabeçalho
+\usepackage[normalem]{ulem} % sublinhado que não sobreescreve \emph
+
+% Ligando o suporte a arquivos dot
+% lembre-se de colocar --enable-write18 na linha de comando
+% o executável do graphviz precisa estar no PATH
+\usepackage[pdftex]{graphicx}
+\usepackage{graphvizzz} % disponível em https://code.google.com/p/graphvizzz/
+
+% outras alternativas para colocar graphviz em latex:
+% http://mark.aufflick.com/blog/2007/03/25/embedding-graphviz-in-latex-documents
+% https://github.com/mprentice/GraphViz-sty
+% http://www.duocoding.nl/blog/249/how-to-embed-dot-graphs-graphviz-in-latex
+% http://www.dont-panic.cc/erik/2007/11/latex-and-graphviz/
+% http://www.fauskes.net/nb/introducing-dot2texi/ <-- this one deserves special attention!!!
+
+\pagestyle{fancy}
+\setcounter{tocdepth}{5}
+
+\rhead{Dot files are easily embedded}
+
+\begin{document} 
+
+\title{\LARGE 
+	Embedding dot files into \LaTeX
+}
+\maketitle
+
+\tableofcontents
+
+\section{TESTES}
+
+%% Start of dot diagram
+\digraph
+[scale=0.7]{g1}
+{
+   margin="0 0 0 0";
+   rankdir="TD";
+   node [shape=box];
+   indexador [label=" Indexador Backend"];
+   index [label="Índice"];
+   cat [label="Catalogo"];
+   tools [label="Tools"];
+   sm [label="Site Manager"];
+   mailing [label="Mailing"];   
+   indexador -> index
+   sm -> cat [label="xml disco"]
+   cat -> sm [label="jms"]
+   index -> cat
+   sm -> index
+   tools -> indexador [label="db/jms"]
+   indexador -> mailing  [label="jms"]
+}
+%% End of dot diagram
+
+\subsection{Tabela1}
+
+\begin{tabular}{|  l  | c | r | }
+  \hline                       
+  1 & 2 & 3 \\ \hline
+  4 & 5 & 6 \\ \hline
+  7 & 8 & 9 \\
+  \hline  
+\end{tabular}
+
+\subsection{Tabela2} 
+
+\subsection{Lists}
+
+\subsubsection{Bullets}
+
+\subsubsection{Enumerados}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

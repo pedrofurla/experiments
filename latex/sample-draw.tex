@@ -11,8 +11,8 @@
 \usepackage[normalem]{ulem} % sublinhado que não sobreescreve \emph
 \usepackage{tikz}
 
-% http://sourceforge.net/projects/pgfplots/
-\usepackage{pgfplots}
+\usepackage{pgfplots} % http://sourceforge.net/projects/pgfplots/
+\pgfplotsset{compat=newest}
 
 %\usepackage{pstricks}
 %\usepackage{pst-plot}
@@ -58,15 +58,6 @@ minimum width=1.8cm,align=center,text depth=.25ex,outer sep=1.5pt]
 \draw [<-,out=5,in=180] (1) to (A);
 \end{tikzpicture}
 
-
-
-% pfgplot package
-\begin{tikzpicture}
-	\begin{axis}[width=190pt,axis x line=middle, axis y line=center, tick align=outside]
-		\addplot+[mark=none,smooth] (\x,{sin(\x r)});
-	\end{axis}
-\end{tikzpicture}
-
 %pst-plot
 %\begin{pspicture}(-8,-2)(8,2)
 %  \psgrid[griddots=10,gridlabels=0pt, subgriddiv=0, gridcolor=black!20]
@@ -76,7 +67,50 @@ minimum width=1.8cm,align=center,text depth=.25ex,outer sep=1.5pt]
 %\end{pspicture}
 
 
-\subsection{}
+\subsection{pfgplot package}
+
+\pgfplotsset{
+  /pgfplots/xlabel near ticks/.style={
+    /pgfplots/every axis x label/.style={
+      at={(ticklabel cs:0.5)},anchor=near ticklabel
+    }
+  },
+  /pgfplots/ylabel near ticks/.style={
+    /pgfplots/every axis y label/.style={
+      at={(ticklabel cs:10.5)},rotate=90,anchor=near ticklabel
+    }
+  }
+}
+
+\pgfplotsset{ every linear axis/.append style={
+  x tick label style={anchor=north},
+  y tick label style={ anchor=east },
+  %y tick label style={at={(-1,0)}  },
+  axis lines=center, fill opacity=0.5,cycle list name=color list}}%
+\pgfplotsset{ every axis plot/.append style={ smooth }}%
+
+\begin{tikzpicture}
+	\begin{axis}[width=190pt]
+		\addplot+[] (\x,{sin(\x r)});
+	\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[width=190pt]
+		\addplot+[] (\x,{\x ^3});
+	\end{axis}
+\end{tikzpicture}
+
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}[stack plots=y,domain=-10:10]
+		%\addplot+[mark=none,smooth] (\x,{\x ^2 + 5}) ;
+		\addplot+[] (\x,{\x ^2});
+		\addplot+[fill] (\x,{ (\x ^3)/5 }) \closedcycle;
+		
+	\end{axis}
+\end{tikzpicture}
+\end{center}
 
 \subsubsection{}
 

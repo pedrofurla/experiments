@@ -1,0 +1,104 @@
+% !TEX TS-program = pdfLaTeX
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{article}  % tipo de documento
+
+\usepackage[utf8]{inputenc}  % levar em consideração que é um arquivo em utf8
+\usepackage{times}                 % um fonte que tenha acentos
+\usepackage[T1]{fontenc}      % levando em consideração utf8 na hora de escolher as letras da fonte
+\usepackage{hyperref}
+\usepackage[normalem]{ulem} % sublinhado que não sobreescreve \emph
+\usepackage{multirow}
+
+
+
+\begin{document} 
+
+\newcommand{\bo}[1]{\textbf{#1}}
+
+\title{\LARGE Tables in \LaTeX }
+%\maketitle
+
+\section{Articles} 
+
+\subsection{Défini}
+
+\begin{tabular}{| c | c | c | l |}
+  \hline                       
+  \multirow{3}{*}{singulier} 
+  	& masculin      & le & \bo{le} fils  \\ \cline{2-4}
+  	& féminin       & la & \bo{la} fille \\ \cline{2-4}
+  	& avant voyelle & l' & \bo{l'}enfant \\ \hline
+  \multirow{3}{*}{pluriel} 
+  	& & \multirow{3}{*}{les} & \bo{les} fils \\ \cline{4-4}
+    & &  & \bo{les} filles \\ \cline{4-4}
+    & &  & \bo{les} enfants \\
+  \hline  
+\end{tabular}
+
+\subsection{Indéfini}
+
+\begin{tabular}{| c | c | c | l |}
+  \hline                       
+  \multirow{2}{*}{singulier} 
+  	& masculin      & un & \bo{un} fils  \\ \cline{2-4}
+  	& féminin       & une & \bo{une} fille \\ \cline{2-4}
+  \multirow{3}{*}{pluriel} 
+  	& & \multirow{3}{*}{des} & \bo{des} fils \\ \cline{4-4}
+    & &  & \bo{des} filles \\ \cline{4-4}
+    & &  & \bo{des} enfants \\
+  \hline  
+\end{tabular}
+
+\begin{itemize}
+  \item \bo{un} boulanger, \bo{une} boulangère 
+  \item \bo{des} boulangers, \bo{des} boulangères
+  \item \bo{un} cahier, \bo{un} ami, \bo{un} hôtel
+  \item \bo{des} cahiers, \bo{des} amis, \bo{des} hôtels
+  \item \bo{une} église, \bo{une} amie, \bo{une} maison
+  \item \bo{des} églises, \bo{des} amies, \bo{des} maisons
+\end{itemize}
+
+\subsection{Column Span} 
+
+
+\subsection{Lists}
+
+\subsubsection{Bullets}
+
+
+\subsubsection{Enumerados}
+
+\begin{enumerate}
+  \item The first item
+  \item The second item
+  \item The third etc \ldots
+\end{enumerate}
+
+\begin{tabular}{|  l  | c | r | }
+  \hline                       
+  1 & 2 & 3 \\ \hline
+  4 & 5 & 6 \\ \hline
+  7 & 8 & 9 \\
+  \hline  
+\end{tabular}
+
+\begin{tabular}{|  l  | c | r | }
+  \hline                       
+  1 & 2 & 3 \\ \hline
+  \multicolumn{2}{|c|}{ 5 } & 6 \\ \hline
+  7 & 8 & 9 \\ 
+  \hline  
+\end{tabular}
+
+\begin{tabular}{|  l  | c | r | }
+  \hline      
+  \multirow{3}{*}{1} & 2 & 3 \\ \cline{2-3}
+   & 5 & 6 \\ \cline{2-3}
+   & 8 & 9 \\
+  \hline  
+\end{tabular}
+
+
+\end{document}
+

@@ -9,32 +9,22 @@
 \usepackage{hyperref}
 \usepackage[normalem]{ulem} % sublinhado que não sobreescreve \emph
 \usepackage{multirow}
-
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tabularx}
 
 
 \begin{document} 
 
 \newcommand{\bo}[1]{\textbf{#1}}
+%\newcommand{\it}[1]{\textit{#1}}
+\newcommand{\rarrow}{\begin{math}\to\ \end{math}}
+
 
 \title{\LARGE Tables in \LaTeX }
 %\maketitle
 
 \section{Articles} 
-
-\subsection{Défini}
-
-\begin{tabular}{| c | c | c | l |}
-  \hline                       
-  \multirow{3}{*}{singulier} 
-  	& masculin      & le & \bo{le} fils  \\ \cline{2-4}
-  	& féminin       & la & \bo{la} fille \\ \cline{2-4}
-  	& avant voyelle & l' & \bo{l'}enfant \\ \hline
-  \multirow{3}{*}{pluriel} 
-  	& & \multirow{3}{*}{les} & \bo{les} fils \\ \cline{4-4}
-    & &  & \bo{les} filles \\ \cline{4-4}
-    & &  & \bo{les} enfants \\
-  \hline  
-\end{tabular}
 
 \subsection{Indéfini}
 
@@ -58,6 +48,44 @@
   \item \bo{une} église, \bo{une} amie, \bo{une} maison
   \item \bo{des} églises, \bo{des} amies, \bo{des} maisons
 \end{itemize}
+
+\subsection{Défini}
+
+\begin{tabular}{| c | c | c | l |}
+  \hline                       
+  \multirow{3}{*}{singulier} 
+  	& masculin      & le & \bo{le} fils  \\ \cline{2-4}
+  	& féminin       & la & \bo{la} fille \\ \cline{2-4}
+  	& avant voyelle & l' & \bo{l'}enfant \\ \hline
+  \multirow{3}{*}{pluriel} 
+  	& & \multirow{3}{*}{les} & \bo{les} fils \\ \cline{4-4}
+    & &  & \bo{les} filles \\ \cline{4-4}
+    & &  & \bo{les} enfants \\
+  \hline  
+\end{tabular}
+
+\subsection{Articles définis avec les prépositions \it{à} et \it{de}} 
+
+
+\begin{table}
+%\begin{tabular}{| p{3.5cm} | l | }
+\begin{tabular}{| l | l | }
+  \hline                       
+  \multirow{2}{*}{masculin singulier} 
+  	& \bo{de} + \bo{le} \rarrow \bo{du}  \\ \cline{2-2}
+    & \bo{à}  + \bo{le} \rarrow \bo{au}  \\ \hline
+  \multirow{4}{*}{féminin singulier\newline  ou avant une voyelle} 
+  	& \bo{de} + \bo{la} \rarrow \bo{de la}  \\ \cline{2-2}
+  	& \bo{de} + \bo{l'} \rarrow \bo{de l'}  \\ \cline{2-2}
+    & \bo{à}  + \bo{la} \rarrow \bo{á la} \\ \cline{2-2}
+    & \bo{à}  + \bo{l'} \rarrow \bo{á l'}  \\ \hline
+  \multirow{2}{*}{masculin et féminin\newline  pluriel} 
+  	& \bo{de} + \bo{les} \rarrow \bo{des}  \\ \cline{2-2}
+    & \bo{à}  + \bo{les} \rarrow \bo{aux} \\ \hline
+  7 & 8 \\
+  \hline  
+\end{tabular}
+\end{table}
 
 \subsection{Column Span} 
 

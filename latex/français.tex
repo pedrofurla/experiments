@@ -1,5 +1,6 @@
 % !TEX TS-program = pdfLaTeX
 % !TEX encoding = UTF-8 Unicode
+% !TEX spellcheck = fr_FR
 
 \documentclass[12pt]{article}  % tipo de documento
 
@@ -12,6 +13,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{tabularx}
+\usepackage[table]{xcolor}
 
 
 \begin{document} 
@@ -66,36 +68,71 @@
 
 \subsection{Articles définis avec les prépositions \it{à} et \it{de}} 
 
-
-\begin{table}
-%\begin{tabular}{| p{3.5cm} | l | }
+%\begin{tabular}{|p{3.5cm}| l | }
 \begin{tabular}{| l | l | }
   \hline                       
   \multirow{2}{*}{masculin singulier} 
   	& \bo{de} + \bo{le} \rarrow \bo{du}  \\ \cline{2-2}
     & \bo{à}  + \bo{le} \rarrow \bo{au}  \\ \hline
-  \multirow{4}{*}{féminin singulier\newline  ou avant une voyelle} 
+  \multirow{4}{*}{féminin singulier ou avant une voyelle} 
   	& \bo{de} + \bo{la} \rarrow \bo{de la}  \\ \cline{2-2}
   	& \bo{de} + \bo{l'} \rarrow \bo{de l'}  \\ \cline{2-2}
     & \bo{à}  + \bo{la} \rarrow \bo{á la} \\ \cline{2-2}
     & \bo{à}  + \bo{l'} \rarrow \bo{á l'}  \\ \hline
-  \multirow{2}{*}{masculin et féminin\newline  pluriel} 
+  \multirow{2}{*}{masculin et féminin pluriel} 
   	& \bo{de} + \bo{les} \rarrow \bo{des}  \\ \cline{2-2}
     & \bo{à}  + \bo{les} \rarrow \bo{aux} \\ \hline
-  7 & 8 \\
-  \hline  
 \end{tabular}
-\end{table}
 
-\subsection{Column Span} 
+\subsection{Les démonstratifs}
+
+\begin{tabular}{| l | c | l |}
+  \hline                       
+  \multirow{2}{*}{masculin singulier} 
+  	& ce & \bo{Ce} jardin  \\ \cline{3-3}
+    &    & \bo{Ce} hôtel   \\ \hline
+  \multirow{2}{*}{féminin singulier} 
+  	& cette & \bo{Cette} maison  \\ \cline{3-3}
+  	&       & \bo{Cette} rose    \\ \hline 	
+  \multirow{2}{*}{singulier avant une voyelle} 
+  	& cet & \bo{Cet} homme  \\ \cline{3-3}
+  	&     & \bo{Cet} actrice  \\ \hline
+  \multirow{2}{*}{pluriel} 
+  	& ces & \bo{Ces} hôtels  \\ \cline{3-3}
+    &     & \bo{Ces} actrices \\ \hline
+\end{tabular}
 
 
-\subsection{Lists}
+\section{Verbes}
 
-\subsubsection{Bullets}
+\newcommand{\verbs}[1]{
+\rowcolors{1}{gray!45}{gray!45}
+\begin{tabular}{| l | c | c | c | c | c | c | c |} \hline
+  \bo{infinitif} & \bo{participe} & \bo{je} & \bo{tu} & \bo{il} & \bo{nous} & \bo{vous} & \bo{ils} \\ 
+  & \bo{passé} & & & \bo{elle} & & & \bo{elles} \\ 
+  &  & & & \bo{on} & & & \\ \hline
+  \hiderowcolors
+#1
+\end{tabular}
+}
 
+%\bo{}& {\it{a.}} & & & & & &  \\ \hline
 
-\subsubsection{Enumerados}
+\subsection{Premier groupe}
+
+\verbs{
+\bo{appeler}& {\it{a.}} appelé& appelle& appelles& appelle& appelons& appelez& appellent  \\ \hline
+\bo{manger}&  {\it{a.}} mangé&  mange& manges& mange& mangeons& mangez& mangent \\ \hline
+\bo{parler}&  {\it{a.}} parlé&  parle& parles& parle& parlons& parlez& parlent \\ \hline
+}
+
+\subsection{Troisième groupe}
+
+\verbs{
+\bo{avoir}& {\it{a.}} eu& ai& as& a& avons& avez& ont  \\ \hline
+\bo{être}& {\it{a.}} été& suir& es& est& sommes& êtes& sont \\ \hline
+\bo{}& {\it{a.}} & & & & & &  \\ \hline
+}
 
 \begin{enumerate}
   \item The first item

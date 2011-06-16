@@ -13,8 +13,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{tabularx}
-\usepackage[table]{xcolor}
-
+\usepackage[xcdraw,table]{xcolor}
+\usepackage[margin=1.5cm]{geometry}
 
 \begin{document} 
 
@@ -23,8 +23,7 @@
 \newcommand{\rarrow}{\begin{math}\to\ \end{math}}
 
 
-\title{\LARGE Tables in \LaTeX }
-%\maketitle
+{\LARGE Mes études du Français en \LaTeX}
 
 \section{Articles} 
 
@@ -102,13 +101,33 @@
     &     & \bo{Ces} actrices \\ \hline
 \end{tabular}
 
-\newpage
+\section{Pronoms}
+
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+
+\begin{tabular}{| l | l | l | l | l | l |}
+  \hline
+            &            & \mc{3}{|c|}{possessif} \\ \hline
+  personnel & complement & \mc{2}{|c|}{singulier} & pluriel \\ \hline
+            &            & masculin  & feminin    &         \\ \hline
+  je        & \bo{moi}   & \bo{mon}  &\bo{ma}     &\bo{mes} \\ \hline
+  tu        & \bo{toi}   & \bo{ton}  &\bo{ta}     &\bo{tes} \\ \hline
+  il        & \bo{lui}   & \bo{sa}   &\bo{sa}     &\bo{ses} \\ \hline
+  elle      & \bo{elle}  & \bo{sa}   &\bo{sa}     &\bo{ses} \\ \hline
+  nous      & \bo{nous}  & \bo{notre}&\bo{notre}  &\bo{nos} \\ \hline
+  vous      & \bo{vous}  & \bo{votre}&\bo{votre}  &\bo{vos} \\ \hline
+  ils       & \bo{eux}   & \bo{leur} &\bo{leur}   &\bo{leurs} \\ \hline
+  elles     & \bo{elles} & \bo{leur} &\bo{leur}   &\bo{leurs} \\ 
+  \hline  
+\end{tabular}
 
 \section{Verbes}
 
 \newcommand{\verbs}[1]{
-\rowcolors{1}{gray!45}{gray!45}
-\begin{tabular}{| l | c | c | c | c | c | c | c |} \hline
+\rowcolors*{1}{gray!45}{gray!45}
+\begin{tabular}{| l | c | c | c | c | c | c | c |}
+  \showrowcolors 
+  \hline
   \bo{infinitif} & \bo{participe} & \bo{je} & \bo{tu} & \bo{il} & \bo{nous} & \bo{vous} & \bo{ils} \\ 
   & \bo{passé} & & & \bo{elle} & & & \bo{elles} \\ 
   &  & & & \bo{on} & & & \\ \hline
@@ -127,14 +146,14 @@
 \bo{parler}&  {\it{a.}} parlé&  parle& parles& parle& parlons& parlez& parlent \\ \hline
 \bo{travailler}& {\it{a.}} & & & & & &  \\ \hline
 \bo{habiter}& {\it{a.}} & & & & & &  \\ \hline
-\bo{arriver}& {\it{e.}} & & & & & &  \\ \hline
+\bo{arriver}& {\it{e.}} arrivé& & & & & &  \\ \hline
 \bo{}& {\it{a.}} & & & & & &  \\ \hline
 }
 
 \subsection{Deuxième groupe}
 
 \verbs{
-\bo{}& {\it{a.}} & & & & & &  \\ \hline
+\bo{finir}& {\it{a.}} fini& finis& finis& finit& finissons& finissez& finissent \\ \hline
 }
 
 \subsection{Troisième groupe}
@@ -142,21 +161,21 @@
 \verbs{
 \bo{aller}& {\it{e.}} allé& vais& vas& va& allon& allez& vont \\ \hline
 \bo{avoir}& {\it{a.}} eu& ai& as& a& avons& avez& ont  \\ \hline
-\bo{être}& {\it{a.}} été& suir& es& est& sommes& êtes& sont \\ \hline
+\bo{être}& {\it{a.}} été& suis& es& est& sommes& êtes& sont \\ \hline
 \bo{devoir}& {\it{a.}} dû& dois& dois& doit& devons& devez& doivent \\ \hline
 \bo{pouvoir}& {\it{a.}} pu& peux& peux& peut& pouvons& pouvez& peuvent \\ \hline
 \bo{vouloir}& {\it{a.}} voulu& veux& veux& veut& voulons& voulez& veulent \\ \hline
 \bo{savoir}& {\it{a.}} su& sais& sais& sait& savons& savez& savent \\ \hline
 \bo{partir}& {\it{e.}} partie& pars& pars& part& partons& partez& partent \\ \hline
-\bo{faire}& {\it{a.}} & & & & & &  \\ \hline
-\bo{comprendre}& {\it{a.}} & & & & & &  \\ \hline
+\bo{faire}& {\it{a.}} fait& fais& fais& fait& faisons& faites& font \\ \hline
+\bo{comprendre}& {\it{a.}} compris& comprends& comprends& comprend& comprenons& comprenez& comprennent \\ \hline
 \bo{connaître}& {\it{a.}} & & & & & &  \\ \hline
 \bo{lire}& {\it{a.}} & & & & & &  \\ \hline
 \bo{écrire}& {\it{a.}} & & & & & &  \\ \hline
-\bo{venir}& {\it{e.}} & & & & & &  \\ \hline
+\bo{venir}& {\it{e.}} venu& viens& viens& vient& venons& venez& viennent  \\ \hline
+\bo{prendre}& {\it{a.}} mis& prends& prends& prend& prenons& prenez& prennent \\ \hline
+\bo{mettre}& {\it{a.}} pris& mets& mets& met& mettons& mettez& mettent\\ \hline
 \bo{prendre}& {\it{a.}} & & & & & &  \\ \hline
-\bo{}& {\it{a.}} & & & & & &  \\ \hline
-\bo{}& {\it{a.}} & & & & & &  \\ \hline
 \bo{}& {\it{a.}} & & & & & &  \\ \hline
 \bo{}& {\it{a.}} & & & & & &  \\ \hline
 \bo{}& {\it{a.}} & & & & & &  \\ \hline
@@ -164,6 +183,7 @@
 \bo{}& {\it{a.}} & & & & & &  \\ \hline
 }
 \newpage
+
 \section{Les dates et l'heures}
 
 \begin{itemize}
@@ -198,36 +218,19 @@
   	\subitem en retard
 \end{itemize}
 
+\section{Forme interrogatifs}
+
+\begin{itemize}
+  \item \bo{Est-ce que}
+  \item \bo{Qu'est que c'est}
+  \subitem
+\end{itemize}
+
 \begin{enumerate}
   \item The first item
   \item The second item
   \item The third etc \ldots
 \end{enumerate}
-
-\begin{tabular}{|  l  | c | r | }
-  \hline                       
-  1 & 2 & 3 \\ \hline
-  4 & 5 & 6 \\ \hline
-  7 & 8 & 9 \\
-  \hline  
-\end{tabular}
-
-\begin{tabular}{|  l  | c | r | }
-  \hline                       
-  1 & 2 & 3 \\ \hline
-  \multicolumn{2}{|c|}{ 5 } & 6 \\ \hline
-  7 & 8 & 9 \\ 
-  \hline  
-\end{tabular}
-
-\begin{tabular}{|  l  | c | r | }
-  \hline      
-  \multirow{3}{*}{1} & 2 & 3 \\ \cline{2-3}
-   & 5 & 6 \\ \cline{2-3}
-   & 8 & 9 \\
-  \hline  
-\end{tabular}
-
 
 \end{document}
 

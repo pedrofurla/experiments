@@ -26,7 +26,7 @@
 
 # Starting #
 
- *  From (http://ruby-doc.org/docs/ProgrammingRuby/)
+ * From (http://ruby-doc.org/docs/ProgrammingRuby/)
 
  * irb:
 
@@ -61,7 +61,7 @@
 
     name="Bleh"
     "Goodnight, #{name}"
-	'goodbay, #{bleh}'
+    'goodbay, #{bleh}'
 	
  * Variable names convention
  
@@ -77,8 +77,8 @@
 
  * Arrays
  
-	 1.9.3p125 :004 > a = [1, "cat", "goodbye, #{name}", nil]
-	 => [1, "cat", "goodbye, bleh", nil] 
+	1.9.3p125 :004 > a = [1, "cat", "goodbye, #{name}", nil]
+	=> [1, "cat", "goodbye, bleh", nil] 
 
  	empty1 = []
 	empty2 = Array.new
@@ -91,17 +91,17 @@
 	
  * Hashes (missnamed maps)
  
-	instSection = {
-	  'cello'     => 'string',
-	  'clarinet'  => 'woodwind',
-	  'drum'      => 'percussion',
-	  'oboe'      => 'woodwind',
-	  'trumpet'   => 'brass',
-	  'violin'    => 'string'
-	}
-	
-	instSection['oboe'] # "woodwind"
-	instSection['piano'] # nil
+    instSection = {
+      'cello'     => 'string',
+      'clarinet'  => 'woodwind',
+      'drum'      => 'percussion',
+      'oboe'      => 'woodwind',
+      'trumpet'   => 'brass',
+      'violin'    => 'string'
+    }
+    
+    instSection['oboe'] # "woodwind"
+    instSection['piano'] # nil
 
   * Hashes can have default values
   
@@ -111,26 +111,26 @@
  * Control structures
  
     def testIf(count)
-	  if count > 10
-		puts "Try again"
-	  elsif count<3
-		puts "You lose"
-	  else
-		puts "bleh"
-	  end
-	end
+        if count > 10
+            puts "Try again"
+        elsif count<3
+            puts "You lose"
+        else
+            puts "bleh"
+        end
+    end
 	
   * nonsense if too:
 
-	puts "Danger, Will Robinson" if radiation > 3000
+    puts "Danger, Will Robinson" if radiation > 3000
 
 
-	while square < 1000
-	 square = square*square
-	end
+    while square < 1000
+     square = square*square
+    end
 
   * as IF wasn't enough, nonsense while, which I don't dare to image the evaluation order
   
-	square = square*square  while square < 1000
+    square = square*square  while square < 1000
 	
 	

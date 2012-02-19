@@ -24,3 +24,4 @@ latex/*.bbl
 latex/*.blg
 latex/*.tcp
 latex/*.tps
+.DS_STORE

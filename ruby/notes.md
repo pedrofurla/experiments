@@ -74,3 +74,63 @@
     <tr><td>class name</td> <td>AClassName</td></tr>
     <tr><td>constant</td>   <td>CONSTANT</td></tr>
 </table>
+
+ * Arrays
+ 
+	 1.9.3p125 :004 > a = [1, "cat", "goodbye, #{name}", nil]
+	 => [1, "cat", "goodbye, bleh", nil] 
+
+ 	empty1 = []
+	empty2 = Array.new
+	a[0] # 1
+	a[1] = nil
+	a[1] # nil
+	
+	b = %w{ ant bee cat dog elk } # crazy array syntax
+	b[1] # "ant"
+	
+ * Hashes (missnamed maps)
+ 
+	instSection = {
+	  'cello'     => 'string',
+	  'clarinet'  => 'woodwind',
+	  'drum'      => 'percussion',
+	  'oboe'      => 'woodwind',
+	  'trumpet'   => 'brass',
+	  'violin'    => 'string'
+	}
+	
+	instSection['oboe'] # "woodwind"
+	instSection['piano'] # nil
+
+  * Hashes can have default values
+  
+	my_hash = Hash.new("oh, fortuna") # new hash with default 'oh, fortuna'
+	my_hash['velut luna']  # "oh, fortuna"
+	
+ * Control structures
+ 
+    def testIf(count)
+	  if count > 10
+		puts "Try again"
+	  elsif count<3
+		puts "You lose"
+	  else
+		puts "bleh"
+	  end
+	end
+	
+  * nonsense if too:
+
+	puts "Danger, Will Robinson" if radiation > 3000
+
+
+	while square < 1000
+	 square = square*square
+	end
+
+  * as IF wasn't enough, nonsense while, which I don't dare to image the evaluation order
+  
+	square = square*square  while square < 1000
+	
+	

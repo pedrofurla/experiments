@@ -16,11 +16,15 @@
 
  * Make it the defaul:
 
+~~~
     $ rvm use 1.9.2
+~~~
 
  * Check if it's working:
 
+~~~
     $ ruby -v
+~~~
 
 -------------------------------------
 
@@ -30,13 +34,16 @@
 
  * irb:
 
+~~~
     "gin joint".length	»	9
     "Rick".index("c")	»	2
     -1942.abs	»	1942
     sam.play(aSong)	»	"duh dum, da dum de dum ..."
+~~~
 
  * defs
 
+~~~
     def sayGoodnight(name)
       result = "Goodnight, " + name
       return result
@@ -45,13 +52,16 @@
     \# Time for bed...
     puts sayGoodnight("John-Boy")
     puts sayGoodnight("Mary-Ellen")
+~~~
 
  * parentesis
 
+~~~
     puts sayGoodnight "John-Boy"
     puts sayGoodnight("John-Boy")
     puts(sayGoodnight "John-Boy")
     puts(sayGoodnight("John-Boy"))
+~~~
 
  > However, life isn't always that simple, and precedence rules can make it difficult
  > to know which argument goes with which method invocation, so we recommend using parentheses
@@ -59,10 +69,12 @@
 
  * String interpolation
 
+~~~
     name="Bleh"
     "Goodnight, #{name}"
     'goodbay, #{bleh}'
-	
+~~~
+
  * Variable names convention
  
 <table>
@@ -77,20 +89,23 @@
 
  * Arrays
  
-	1.9.3p125 :004 > a = [1, "cat", "goodbye, #{name}", nil]
-	=> [1, "cat", "goodbye, bleh", nil] 
+~~~
+    1.9.3p125 :004 > a = [1, "cat", "goodbye, #{name}", nil]
+    => [1, "cat", "goodbye, bleh", nil] 
+    
+     empty1 = []
+    empty2 = Array.new
+    a[0] # 1
+    a[1] = nil
+    a[1] # nil
+    
+    b = %w{ ant bee cat dog elk } # crazy array syntax
+    b[1] # "ant"
+~~~
 
- 	empty1 = []
-	empty2 = Array.new
-	a[0] # 1
-	a[1] = nil
-	a[1] # nil
-	
-	b = %w{ ant bee cat dog elk } # crazy array syntax
-	b[1] # "ant"
-	
  * Hashes (missnamed maps)
- 
+
+~~~
     instSection = {
       'cello'     => 'string',
       'clarinet'  => 'woodwind',
@@ -102,14 +117,18 @@
     
     instSection['oboe'] # "woodwind"
     instSection['piano'] # nil
+~~~
 
   * Hashes can have default values
-  
-	my_hash = Hash.new("oh, fortuna") # new hash with default 'oh, fortuna'
-	my_hash['velut luna']  # "oh, fortuna"
-	
+
+~~~
+    my_hash = Hash.new("oh, fortuna") # new hash with default 'oh, fortuna'
+    my_hash['velut luna']  # "oh, fortuna"
+~~~
+
  * Control structures
- 
+
+~~~
     def testIf(count)
         if count > 10
             puts "Try again"
@@ -119,18 +138,21 @@
             puts "bleh"
         end
     end
-	
+~~~
+
   * nonsense if too:
 
+~~~
     puts "Danger, Will Robinson" if radiation > 3000
 
 
     while square < 1000
      square = square*square
     end
-
+~~~
   * as IF wasn't enough, nonsense while, which I don't dare to image the evaluation order
-  
+
+~~~
     square = square*square  while square < 1000
-	
+~~~	
 	

@@ -144,15 +144,16 @@
 
 ~~~
     puts "Danger, Will Robinson" if radiation > 3000
-
-
-    while square < 1000
-     square = square*square
-    end
 ~~~
   * as IF wasn't enough, nonsense while, which I don't dare to imagine the evaluation order
 
 ~~~
+    while square < 1000
+     square = square*square
+    end
+
+    # are these equivalent? I don't dare
+
     square = square*square  while square < 1000
 ~~~	
 
@@ -183,7 +184,8 @@
 
 ## Classes and objects, finally ##
 
- * A simple class named song with name, artist and duration properties
+ * A simple class named song with name, artist and duration 
+
 ~~~
 class Song
   def initialize(name, artist, duration)
@@ -195,6 +197,7 @@ end
 ~~~
 
  * Instantiating and inspecting its contents
+
 ~~~
 aSong = Song.new("Bicylops", "Fleck", 260)
 aSong.inspect  # results <Song:0x401b4924 @duration=260, @artist=\"Fleck\", @name=\"Bicylops\">
@@ -202,6 +205,7 @@ aSong.@name # Error, notice it's private
 ~~~~
 
  * Ruby classes are open - or as I like to think - never closed. So at any given time methods can me be added
+
 ~~~
 class Song
   def to_s
@@ -213,6 +217,7 @@ end
  * It's interesting to notice that our new method to_s was also 'added' to already existing instances
 
  * Inheritance 
+
 ~~~
 class KaraokeSong < Song
   def initialize(name, artist, duration, lyrics)
@@ -223,6 +228,7 @@ end
 ~~~
 
  * And fixing the to string method to show our new property
+
 ~~~
 class KaraokeSong < Song
   def to_s
@@ -232,11 +238,13 @@ end
 ~~~
 
  * Attributes
+
 ~~~
 aSong.@name # results in a error, because @name is a private attribute
 ~~~
 
   * To amend that accessors are created and it's even taking advantage of the never-closed-ness of Ruby classes:
+
 ~~~
 class Song
   def name
@@ -252,6 +260,7 @@ end
 ~~~
   
   * And you say "Hey dude, it's so boring to keep writing all this stuff for every class". Indeed it is. Check Ruby's solution:
+
 ~~~
 class Song
   attr_reader :name, :artist, :duration
@@ -277,6 +286,7 @@ aSong.duration="3 hours" # let's pretend it's a opera
 ~~~~
 
   * The short way
+
 ~~~
 class Song
   attr_writer :duration
@@ -286,6 +296,7 @@ aSong.duration = 257
 ~~~
 
   * Virtual attributes - or as I like to call it - derivated attributes - although Ruby apparently encourages the its usage for mutation too:
+
 ~~~
 class Song
   def durationInMinutes

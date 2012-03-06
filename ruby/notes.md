@@ -14,6 +14,10 @@
 
     $ rvm install 1.9.3
 
+  For Mac with MacPort:
+    
+    $ rvm install 1.9.3 --with-openssl-dir=/opt/local --with-iconv-dir=/opt/local
+
  * Make it the default:
 
 ~~~
@@ -298,13 +302,101 @@ aSong.duration = 257
   * Virtual attributes - or as I like to call it - derivated attributes - although Ruby apparently encourages the its usage for mutation too:
 
 ~~~
-class Song
-  def durationInMinutes
-    @duration/60.0   # force floating point
+  class Song
+    def durationInMinutes
+      @duration/60.0   # force floating point
+    end
+    def durationInMinutes=(value)
+      @duration = (value*60).to_i
+    end
   end
-  def durationInMinutes=(value)
-    @duration = (value*60).to_i
-  end
-end
+
+  aSong = Song.new("Bicylops", "Fleck", 260)
+  aSong.durationInMinutes 
+  aSong.durationInMinutes = 4.2
+  aSong.duration
 ~~~
+
+  * Class variables
+
+  ~~~ 
+  class Song
+    @@plays = 0
+    def plays # an accessor since @@plays is private
+      @@plays
+    end
+  end
+  ~~~
+
+ * Class methods
+
+ ~~~
+ class SongList
+  MaxTime = 5*60           #  5 minutes
+  def SongList.isTooLong(aSong)
+    return aSong.duration > MaxTime
+  end
+ end
+ 
+ SongList.isTooLong(500)
+ ~~~~
+
+ * Singleton
+ 
+ ~~~
+ class Logger
+  private_class_method :new
+  @@logger = nil
+  def Logger.create
+    @@logger = new unless @@logger
+    @@logger
+  end
+ end
+ ~~~
+
+ Not thread safe though
+
+ * Some Ruby magic:
+ ~~~
+  class SongList
+    def [](key)
+      if key.kind_of?(Integer) then
+        @songs[key]
+      else
+        @songs.find { |aSong| aSong.name == key }
+      end
+    end
+  end
+ ~~~
+
+ * Getting into arrays and collections
+
+   * Assuming a = Array[1,2,3,4,5]
+
+   * .each is scala's foreach
+   * .collect is map
+   * .inject is fold
+   * .find { predicate } returns the first that satisfies the predicate
+   * .select { predicate } is filter
+   * all these returns new arrays
+
+   ~~~
+   a.each { |x| print x } # results in 12345
+   a.collect {|x| x+100 } # results in [101, 102, 103, 104, 105] 
+   a.inject(0) { |result, element| result + element } # 15
+   a.inject(Array.new) { |result, element|  result.unshift element } # [5,4,3,2,1]
+   a.find { |x| x=2 }  # 1
+   a.select { |x| (x % 2)==0 } # [2,4]
+   ~~~~
+
+ * Expanding Arrays in Method Calls - Thou shalt be ambiguous to be 'expressive'
+
+ ~~~
+  def five(a, b, c, d, e)
+    "I was passed #{a} #{b} #{c} #{d} #{e}"
+  end
+  five(1, 2, 3, 4, 5 )  »  "I was passed 1 2 3 4 5"
+  five(1, 2, 3, *['a', 'b'])  »  "I was passed 1 2 3 a b"
+  five(*(10..14).to_a)  »  "I was passed 10 11 12 13 14"
+ ~~~
 
